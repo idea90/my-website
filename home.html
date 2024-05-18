@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ໜ້າຫຼັກ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #007bff, #8a2be2);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #333333;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #444;
+            border-radius: 6px 6px 0 0;
+            transition: background-color 0.3s ease;
+        }
+        .tab.active {
+            background-color: #666;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h1 {
+            margin: 0;
+        }
+        .action-btn {
+            background: linear-gradient(135deg, #007bff, #8a2be2);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .action-btn:hover {
+            background: linear-gradient(135deg, #0056b3, #7a26a6);
+        }
+        .greeting {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="greeting">
+            <h1>ຍິນດີຕ້ອນຮັບ, idea</h1>
+        </div>
+        <button class="action-btn" onclick="logout()">ອອກຈາກລະບົບ</button>
+        <div class="tabs">
+            <div class="tab" onclick="showTab(1)">Tab 1</div>
+            <div class="tab" onclick="showTab(2)">Tab 2</div>
+        </div>
+        <div class="tab-content" id="tab1">
+            <h1>Content for Tab 1</h1>
+        </div>
+        <div class="tab-content" id="tab2">
+            <h1>Content for Tab 2</h1>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabIndex) {
+            var tabs = document.querySelectorAll('.tab');
+            var tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(function(tab, index) {
+                if (index + 1 === tabIndex) {
+                    tab.classList.add('active');
+                    tabContents[index].classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                    tabContents[index].classList.remove('active');
+                }
+            });
+        }
+
+        function logout() {
+            // Redirect to login page
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
+
